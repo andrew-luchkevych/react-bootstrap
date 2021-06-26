@@ -2,6 +2,7 @@
 .container {
 	display: block;
 	width: calc(100% / 7);
+	max-height: max(calc((100vh - 250px) / 6), 50px);
 	float: left;
 	position: relative;
 	box-shadow: $table-border-width 0 0 0 #888, 0 $table-border-width 0 0 #888,

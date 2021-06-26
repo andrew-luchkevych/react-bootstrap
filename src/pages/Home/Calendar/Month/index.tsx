@@ -16,15 +16,30 @@ export interface MonthProps {
 const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export const Month = (props: MonthProps) => {
+
+	// Calculating days needs to be displayed before current month dates
 	const month = new Date(props.year, props.month, 1);
 	const monthFirstWeekDay = month.getDay();
 	const prevDays = monthFirstWeekDay === 1
 		? 0
 		: monthFirstWeekDay === 0 ? 6 : monthFirstWeekDay - 1;
+
+	// Getting current month days
 	const currentMonthDays = new Date(props.year, props.month + 1, 0).getDate();
+
+	// Calculating full rows days
 	const fullRowsCount = Math.ceil((currentMonthDays + prevDays) / 7);
 	const days = fullRowsCount * 7;
+
+	// Creating that will consists all rows days
 	const dates = Array.from(Array(days)).map((_, i) => {
+
+		/**
+		 * Creating dates to fit:
+		 * - prev month to fill first row
+		 * - current month
+		 * - next month to fill last row
+		*/
 		const day = i - prevDays + 1;
 		const date = new Date(props.year, props.month, day);
 		return {

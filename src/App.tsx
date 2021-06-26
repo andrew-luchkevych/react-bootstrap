@@ -14,9 +14,7 @@ export class App extends React.PureComponent {
 		return (
 			<BrowserRouter>
 				<Page>
-					<Switch>
-						<Route path="/" exact component={Home} />
-					</Switch>
+					<Home />
 				</Page>
 			</BrowserRouter>
 		)

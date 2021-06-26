@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+	BrowserRouter,
+	Switch,
+	Route,
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+} from "react-router-dom";
+
+import Page from "./components/Page";
+import Home from "./pages/Home";
+
+export class App extends React.PureComponent {
+	public render() {
+		return (
+			<BrowserRouter>
+				<Page>
+					<Switch>
+						<Route path="/" exact component={Home} />
+					</Switch>
+				</Page>
+			</BrowserRouter>
+		)
+	}
 }
-
 export default App;

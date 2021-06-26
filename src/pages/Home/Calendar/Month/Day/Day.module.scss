@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/bootstrap";
+.container {
+	display: block;
+	width: calc(100% / 7);
+	float: left;
+	position: relative;
+	box-shadow: $table-border-width 0 0 0 #888, 0 $table-border-width 0 0 #888,
+		$table-border-width $table-border-width 0 0 #888, $table-border-width 0 0 0 #888 inset,
+		0 $table-border-width 0 0 #888 inset;
+}
+.container::before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+.content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
